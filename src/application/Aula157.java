@@ -8,13 +8,21 @@ public class Aula157 {
 
 	public static void main(String[] args) {
 		
-		Account1 acc = new Account1(1001, "Alex", 0.0);
+		Account1 acc = new Account1(1001, "Alex", 1000.0);
+		acc.withdraw(200.0);
+		System.out.println(acc.getBalance());
 		BusinesssAccount bacc = new BusinesssAccount(1002, "Maria", 0.0, 500.00);
 		
 		//Upcasting
 		Account1 acc1 = bacc;
-		Account1 acc2 = new BusinesssAccount(1003, "Bob", 0.0, 200.0);
-		Account1 acc3 = new SavingsAccount(1004, "Ana", 0.0, 0.01);
+		
+		Account1 acc2 = new BusinesssAccount(1003, "Bob", 1000.0, 500.0);
+		acc2.withdraw(200.0);
+		System.out.println(acc2.getBalance());
+		
+		Account1 acc3 = new SavingsAccount(1004, "Ana", 1000.0, 0.01);
+		acc3.withdraw(200.0);
+		System.out.println(acc3.getBalance());
 		
 		//Downcasting
 		BusinesssAccount acc4 = (BusinesssAccount)acc2;
