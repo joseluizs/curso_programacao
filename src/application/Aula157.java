@@ -15,6 +15,7 @@ public class Aula157 {
 		
 		//Upcasting
 		Account1 acc1 = bacc;
+		acc1.getBalance();
 		
 		Account1 acc2 = new BusinesssAccount(1003, "Bob", 1000.0, 500.0);
 		acc2.withdraw(200.0);
