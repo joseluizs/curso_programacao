@@ -1,6 +1,7 @@
 package entities;
 
 public class ImportedProduct extends Product {
+
 	private Double customsFee;
 
 	public ImportedProduct(String name, Double price, Double customsFee) {
@@ -29,5 +30,4 @@ public class ImportedProduct extends Product {
 				+ String.format("%.2f", customsFee)
 				+ ")";
 	}
-
 }
