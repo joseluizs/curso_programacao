@@ -1,5 +1,7 @@
 package entities;
 
+import model.exeptions.BusinessExecption;
+
 public class Accounts {
 	
 	private Integer number;
@@ -54,18 +56,17 @@ public class Accounts {
 	}
 	
 	public void witdraw(double amount) {
+		validateWithdraw(amount);
 		balance -= amount;
 	}
 	
-	public String validateWithdraw(double amount) {
+	private void validateWithdraw(double amount) {
 		if (amount > getWithdrawLimit()) {
 			//Gambiarra pq esse tratamento teria que esta na tela de saida e não na regra do negócio.
-			return "Withdraw error: The amount exceeds withdraw limit: ";
+			throw new BusinessExecption("Withdraw error: The amount exceeds withdraw limit: ");
 		} if (amount > getBalance()) {
-			return "Withdraw error: Not enough balance: ";
+			throw new BusinessExecption("Withdraw error: Not enough balance: ");
 		}
-		
-		return null;
 
 	}
 	

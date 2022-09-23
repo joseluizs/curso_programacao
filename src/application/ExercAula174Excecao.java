@@ -4,6 +4,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import entities.Accounts;
+import model.exeptions.BusinessExecption;
 
 public class ExercAula174Excecao {
 
@@ -29,12 +30,11 @@ public class ExercAula174Excecao {
 		System.out.print("Enter amount for withdraw: ");
 		double amount = sc.nextDouble();
 
-		String error = acc.validateWithdraw(amount);
-		if(error != null) {
-			System.out.println(error);
-		} else {
+		try {
 			acc.witdraw(amount);
 			System.out.printf("New balance: %.2f%n", acc.getBalance());
+		} catch (BusinessExecption e) {
+			System.out.println(e.getMessage());
 		}
 
 		sc.close();
