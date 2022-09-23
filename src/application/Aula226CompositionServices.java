@@ -10,6 +10,7 @@ import model.entities.CarRental;
 import model.entities.Vehicle;
 import model.services.BrazilTaxService;
 import model.services.RentalService;
+import model.services.USATaxService;
 
 public class Aula226CompositionServices {
 
@@ -28,20 +29,43 @@ public class Aula226CompositionServices {
 		Date finish = sdf.parse(sc.nextLine());
 		
 		CarRental cr = new CarRental(start, finish, new Vehicle(carModel));
+		CarRental cr1 = new CarRental(start, finish, new Vehicle(carModel));
 
-		System.out.print("Enter price per hour: ");
+		System.out.print("Enter price per hour Brazil: ");
 		double pricePerHour = sc.nextDouble();
-		System.out.print("Enter price per day: ");
+		System.out.print("Enter price per day Brazil: ");
 		double pricePerDay = sc.nextDouble();
 		
 		RentalService rentalService = new RentalService(pricePerDay, pricePerHour, new BrazilTaxService());
-		
 		rentalService.processInvoice(cr);
+		
+		rentalService = new RentalService(pricePerDay, pricePerHour, new USATaxService());
+		rentalService.processInvoice(cr1);
+		
+		System.out.print("Enter price per hour USA: ");
+		pricePerHour = sc.nextDouble();
+		System.out.print("Enter price per day USA: ");
+		pricePerDay = sc.nextDouble();
+		
+		
+		
+		
 
 		System.out.println("INVOICE:");
 		System.out.println("Basic payment: " + String.format("%.2f", cr.getInvoice().getBasicPayment()));
 		System.out.println("Tax: " + String.format("%.2f", cr.getInvoice().getTax()));
 		System.out.println("Total payment: " + String.format("%.2f", cr.getInvoice().getTotalPayment()));
+		
+		
+		System.out.println("----------------------USA------------------------------------------------");
+		
+		System.out.println("INVOICE:");
+		System.out.println("Basic payment: " + String.format("%.2f", cr1.getInvoice().getBasicPayment()));
+		System.out.println("Tax: " + String.format("%.2f", cr1.getInvoice().getTax()));
+		System.out.println("Total payment: " + String.format("%.2f", cr1.getInvoice().getTotalPayment()));
+		
+		
+		
 		
 		sc.close();
 
