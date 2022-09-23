@@ -57,6 +57,18 @@ public class Accounts {
 		balance -= amount;
 	}
 	
+	public String validateWithdraw(double amount) {
+		if (amount > getWithdrawLimit()) {
+			//Gambiarra pq esse tratamento teria que esta na tela de saida e não na regra do negócio.
+			return "Withdraw error: The amount exceeds withdraw limit: ";
+		} if (amount > getBalance()) {
+			return "Withdraw error: Not enough balance: ";
+		}
+		
+		return null;
+
+	}
+	
 	
 	
 	
