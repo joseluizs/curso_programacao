@@ -30,7 +30,7 @@ public class ExercAula221 {
 		String sourceFolderStr = sourceFile.getParent();
 		
 		boolean success = new File(sourceFolderStr + "\\out").mkdir();
-		
+				
 		String targetFileStr = sourceFolderStr + "\\out\\summary.csv";
 
 		try (BufferedReader br = new BufferedReader(new FileReader(sourceFileStr))) {
@@ -64,7 +64,7 @@ public class ExercAula221 {
 		} catch (IOException e) {
 			System.out.println("Error reading file: " + e.getMessage());
 		}
-
+		System.out.println(success);
 		sc.close();
 	}
 
