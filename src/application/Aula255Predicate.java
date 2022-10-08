@@ -17,7 +17,7 @@ public class Aula255Predicate {
 		list.add(new Product("Tablet", 350.50));
 		list.add(new Product("HD Case", 80.90));
 		
-		list.removeIf(Product::staticProductPredicate);//referencia pra method
+		list.removeIf(Product::nonStaticProductPredicate);//referencia pra method
 		
 		for (Product product : list) {
 			System.out.println(product);
