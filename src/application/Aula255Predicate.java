@@ -20,11 +20,8 @@ public class Aula255Predicate {
 		
 		//parametrizar
 		double min = 100.00;
-		
-		//predicate
-		Predicate<Product> pred = p -> p.getPrice() >= min;
- 		
-		list.removeIf(pred);
+		 		
+		list.removeIf(p -> p.getPrice() >= min);
 		
 		for (Product product : list) {
 			System.out.println(product);
