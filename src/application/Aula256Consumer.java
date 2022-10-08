@@ -29,11 +29,7 @@ public class Aula256Consumer {
 		
 		double factor = 1.1;
 		
-		Consumer<Product> cons = p ->{ // como tem apenas uma linha as chaves são opcionais!
-			p.setPrice(p.getPrice() * factor);
-		};
-		
-		list.forEach(cons);
+		list.forEach(p -> p.setPrice(p.getPrice() * factor));
 		
 		list.forEach(System.out::println);//reference method para println
 
