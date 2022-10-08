@@ -50,6 +50,10 @@ public class Product {
 		Product other = (Product) obj;
 		return Objects.equals(name, other.name) && Objects.equals(price, other.price);
 	}
+	
+	public static boolean staticProductPredicate(Product p) {
+		return p.getPrice() >= 100;
+	}
 
 	@Override
 	public String toString() {
